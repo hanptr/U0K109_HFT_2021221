@@ -19,6 +19,14 @@ namespace U0K109_HFT_2021221.Models
         public DateTime Date { get; set; }
         public Type Type { get; set; }
         public string Color { get; set; }
+        [NotMapped]
+        public virtual AppleService AppleService { get; set; }
+        [NotMapped]
+        public virtual AppleService Customer { get; set; }
+        [ForeignKey(nameof(AppleService))]
+        public int ServiceID { get; set; }
+        [ForeignKey(nameof(Customer))]
+        public int CustomerID { get; set; }
 
     }
 }
