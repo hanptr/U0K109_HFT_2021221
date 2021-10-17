@@ -14,15 +14,15 @@ namespace U0K109_HFT_2021221.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Serial { get; set; }
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public DateTime Date { get; set; }
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //public DateTime Date { get; set; }
         public Type Type { get; set; }
         public string Color { get; set; }
         [NotMapped]
         public virtual AppleService AppleService { get; set; }
         [NotMapped]
-        public virtual AppleService Customer { get; set; }
+        public virtual Customer Customer { get; set; }
         [ForeignKey(nameof(AppleService))]
         public int ServiceID { get; set; }
         [ForeignKey(nameof(Customer))]
