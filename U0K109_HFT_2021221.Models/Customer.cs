@@ -17,6 +17,10 @@ namespace U0K109_HFT_2021221.Models
         public string Email { get; set; }
         [NotMapped]
         public virtual ICollection<AppleProduct> Products { get; set; }
+        [NotMapped]
+        public virtual AppleService AppleService { get; set; }
+        [ForeignKey(nameof(AppleService))]
+        public int ServiceID { get; set; }
         public Customer()
         {
             Products = new HashSet<AppleProduct>();
