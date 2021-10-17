@@ -14,6 +14,7 @@ namespace U0K109_HFT_2021221.Models
         public string Location { get; set; }
         [NotMapped]
         public virtual ICollection<Customer> Customers { get; set; }
+        [NotMapped]
         public virtual ICollection<AppleProduct> Products { get; set; }
         public AppleService()
         {
