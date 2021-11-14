@@ -8,7 +8,7 @@ using U0K109_HFT_2021221.Data;
 
 namespace U0K109_HFT_2021221.Repository
 {
-    class AppleServiceRepository : IAppleServiceRepository
+    public class AppleServiceRepository : IAppleServiceRepository
     {
         AppleDbContext db;
         public AppleServiceRepository(AppleDbContext db)

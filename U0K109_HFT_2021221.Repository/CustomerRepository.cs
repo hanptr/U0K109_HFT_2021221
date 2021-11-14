@@ -8,7 +8,7 @@ using U0K109_HFT_2021221.Models;
 
 namespace U0K109_HFT_2021221.Repository
 {
-    class CustomerRepository : ICustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
          AppleDbContext db;
         public CustomerRepository(AppleDbContext db)

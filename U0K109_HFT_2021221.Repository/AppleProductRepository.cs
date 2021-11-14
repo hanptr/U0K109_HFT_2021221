@@ -8,7 +8,7 @@ using U0K109_HFT_2021221.Data;
 
 namespace U0K109_HFT_2021221.Repository
 {
-    class AppleProductRepository : IAppleProductRepository
+    public class AppleProductRepository : IAppleProductRepository
     {
         AppleDbContext db;
         public AppleProductRepository(AppleDbContext db)
