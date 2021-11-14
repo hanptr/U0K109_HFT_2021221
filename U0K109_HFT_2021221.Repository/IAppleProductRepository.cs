@@ -4,7 +4,7 @@ using U0K109_HFT_2021221.Models;
 
 namespace U0K109_HFT_2021221.Repository
 {
-    public interface IAppleProduct
+    public interface IAppleProductRepository
     {
         void Create(AppleProduct appleProduct);
         void Delete(int id);
