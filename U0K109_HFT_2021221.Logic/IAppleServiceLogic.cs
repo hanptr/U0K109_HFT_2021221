@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 using U0K109_HFT_2021221.Models;
 using U0K109_HFT_2021221.Repository;
 
+
 namespace U0K109_HFT_2021221.Logic
 {
-    class AppleProductLogic
+    public interface IAppleServiceLogic
     {
+        void Create(Customer customer);
+        void Delete(int id);
+        IEnumerable<Customer> GetAll();
+        Customer Read(int id);
+        void Update(Customer brand);
     }
 }
