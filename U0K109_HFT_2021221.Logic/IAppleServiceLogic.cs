@@ -11,10 +11,10 @@ namespace U0K109_HFT_2021221.Logic
 {
     public interface IAppleServiceLogic
     {
-        void Create(Customer customer);
+        void Create(AppleService appleService);
         void Delete(int id);
-        IEnumerable<Customer> GetAll();
-        Customer Read(int id);
-        void Update(Customer brand);
+        IEnumerable<AppleService> GetAll();
+        AppleService Read(int id);
+        void Update(AppleService appleService);
     }
 }
