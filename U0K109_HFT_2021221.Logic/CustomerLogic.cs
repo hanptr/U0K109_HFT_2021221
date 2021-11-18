@@ -17,7 +17,14 @@ namespace U0K109_HFT_2021221.Logic
         }
         public void Create(Customer customer)
         {
-            customerRepo.Create(customer);
+            if (!customer.Email.Contains('@'))
+            {
+                throw new Exception("E-mail does not meet the requirements.")
+            }
+            else
+            {
+                customerRepo.Create(customer);
+            }
         }
 
         public void Delete(int id)

@@ -18,7 +18,14 @@ namespace U0K109_HFT_2021221.Logic
 
         public void Create(AppleService appleService)
         {
-            appleServiceRepo.Create(appleService);
+            if (appleService.Location.Contains('%'))
+            {
+                throw new Exception("Not supported symbol.");
+            }
+            else
+            {
+                appleServiceRepo.Create(appleService);
+            }
         }
 
         public void Delete(int id)
@@ -40,5 +47,8 @@ namespace U0K109_HFT_2021221.Logic
         {
             appleServiceRepo.Update(appleService);
         }
+
+        //non-crud metódusok
+
     }
 }
