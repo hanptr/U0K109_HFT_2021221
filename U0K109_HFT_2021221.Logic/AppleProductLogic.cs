@@ -39,5 +39,13 @@ namespace U0K109_HFT_2021221.Logic
         {
             appleProdcutRepo.Update(appleProduct);
         }
+
+        //non-crud methods
+        
+        public int HowManyiPhones() {
+            return appleProdcutRepo.GetAll().Where(t => t.Type == U0K109_HFT_2021221.Models.Type.iPhone).Count();
+        }
+
+
     }
 }

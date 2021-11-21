@@ -48,7 +48,10 @@ namespace U0K109_HFT_2021221.Logic
             appleServiceRepo.Update(appleService);
         }
 
-        //non-crud metódusok
-
+        //non-crud methods
+        public IEnumerable<AppleService> IdStartsWithTwo()
+        {
+            return appleServiceRepo.GetAll().Where(t => t.ServiceID.ToString().StartsWith("2"));
+        }
     }
 }
