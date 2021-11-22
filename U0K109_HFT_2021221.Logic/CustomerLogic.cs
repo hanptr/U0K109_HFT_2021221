@@ -8,7 +8,7 @@ using U0K109_HFT_2021221.Repository;
 
 namespace U0K109_HFT_2021221.Logic
 {
-    class CustomerLogic : ICustomerLogic
+    public class CustomerLogic : ICustomerLogic
     {
         ICustomerRepository customerRepo;
         public CustomerLogic(ICustomerRepository customerRepo)
@@ -19,7 +19,7 @@ namespace U0K109_HFT_2021221.Logic
         {
             if (!customer.Email.Contains('@'))
             {
-                throw new Exception("E-mail does not meet the requirements.")
+                throw new Exception("E-mail does not meet the requirements.");
             }
             else
             {
@@ -56,7 +56,7 @@ namespace U0K109_HFT_2021221.Logic
         }
         public IEnumerable<Customer> MoreThanOneProduct()
         {
-            return customerRepo.GetAll().Where(t => t.Products.Count > 1);     
+            return customerRepo.GetAll().Where(t => t.Products.Count > 1);
         }
         public IEnumerable<Customer> CustomersWithGmail()
         {

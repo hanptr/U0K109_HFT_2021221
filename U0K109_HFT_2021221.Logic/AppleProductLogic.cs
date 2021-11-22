@@ -8,7 +8,7 @@ using U0K109_HFT_2021221.Repository;
 
 namespace U0K109_HFT_2021221.Logic
 {
-    class AppleProductLogic : IAppleProductLogic
+    public class AppleProductLogic : IAppleProductLogic
     {
         IAppleProductLogic appleProdcutRepo;
         public AppleProductLogic(IAppleProductLogic appleProdcutRepo)

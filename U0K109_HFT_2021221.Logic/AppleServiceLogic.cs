@@ -8,7 +8,7 @@ using U0K109_HFT_2021221.Repository;
 
 namespace U0K109_HFT_2021221.Logic
 {
-    class AppleServiceLogic : IAppleServiceLogic
+    public class AppleServiceLogic : IAppleServiceLogic
     {
         IAppleServiceRepository appleServiceRepo;
         public AppleServiceLogic(IAppleServiceRepository appleServiceRepo)
@@ -52,6 +52,14 @@ namespace U0K109_HFT_2021221.Logic
         public IEnumerable<AppleService> IdStartsWithTwo()
         {
             return appleServiceRepo.GetAll().Where(t => t.ServiceID.ToString().StartsWith("2"));
+        }
+        public IEnumerable<KeyValuePair<int, double>> AvgProdPerCustomerPerService() 
+        {
+            var q1 = from x in appleServiceRepo.GetAll()
+                     group x by x.ServiceID into g
+                     select new KeyValuePair<int, double>(g.Key, g.Average(t => t.Customers.Average(z => z.Products.Count())));
+            ;
+            return q1;
         }
     }
 }
