@@ -92,9 +92,9 @@ namespace U0K109_HFT_2021221.Test
             moqAppleProductRepo.Setup(appleProduct => appleProduct.GetAll()).Returns(appleProducts);
             moqAppleServiceRepo.Setup(appleService => appleService.GetAll()).Returns(appleServices);
 
-            AppleServiceLogic appleServiceLogic = new AppleServiceLogic(moqAppleServiceRepo.Object);
-            CustomerLogic customerLogic = new CustomerLogic(moqCustomerRepo.Object);
-            AppleProductLogic appleProductLogic = new AppleProductLogic(moqAppleProductRepo.Object);
+            appleServLogic = new AppleServiceLogic(moqAppleServiceRepo.Object);
+            customerLogic = new CustomerLogic(moqCustomerRepo.Object);
+            appleProdLogic = new AppleProductLogic(moqAppleProductRepo.Object);
 
         }
 
@@ -104,9 +104,10 @@ namespace U0K109_HFT_2021221.Test
             var result = appleServLogic.AvgProdPerCustomerPerService();
             var expected = new List<KeyValuePair<int, double>>()
             {
-                new KeyValuePair<int, double>(1, 2),
-                new KeyValuePair<int, double>(2, 2)
+                new KeyValuePair<int, double>(1, 1),
+                new KeyValuePair<int, double>(2, 1)
             };
+            ;
             Assert.That(result, Is.EqualTo(expected));
         }
         [Test]
@@ -118,6 +119,7 @@ namespace U0K109_HFT_2021221.Test
                 new KeyValuePair<int, int>(1, 1),
                 new KeyValuePair<int, int>(2, 0)
             };
+            ;
             Assert.That(result, Is.EqualTo(expected));
         }
         [Test]
@@ -140,6 +142,7 @@ namespace U0K109_HFT_2021221.Test
                 new KeyValuePair<int, int>(1, 0),
                 new KeyValuePair<int, int>(2, 0)
             };
+            ;
             Assert.That(result, Is.EqualTo(expected));
         }
         [Test]
@@ -151,6 +154,7 @@ namespace U0K109_HFT_2021221.Test
                 new KeyValuePair<int, int>(1, 1),
                 new KeyValuePair<int, int>(2, 1)
             };
+            ;
             Assert.That(result, Is.EqualTo(expected));
         }
         [Test]
