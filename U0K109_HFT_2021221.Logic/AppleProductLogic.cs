@@ -17,7 +17,19 @@ namespace U0K109_HFT_2021221.Logic
         }
         public void Create(AppleProduct appleProduct)
         {
-            appleProdcutRepo.Create(appleProduct);
+            if (appleProduct.Serial<1)
+            {
+                throw new Exception("Invalid Serial number.");
+            }
+            else if (appleProduct.Serial.ToString().Length>7)
+            {
+                throw new Exception("Too long Serial number.");
+            }
+            else
+            {
+                appleProdcutRepo.Create(appleProduct);
+            }
+            
         }
 
         public void Delete(int id)
