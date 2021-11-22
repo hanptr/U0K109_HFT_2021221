@@ -46,21 +46,5 @@ namespace U0K109_HFT_2021221.Logic
         {
             customerRepo.Update(customer);
         }
-
-        //non-rud methods
-
-        public double AVGProduct() 
-        {
-            return customerRepo.GetAll()
-                .Average(t => t.Products.Count);
-        }
-        public IEnumerable<Customer> MoreThanOneProduct()
-        {
-            return customerRepo.GetAll().Where(t => t.Products.Count > 1);
-        }
-        public IEnumerable<Customer> CustomersWithGmail()
-        {
-            return customerRepo.GetAll().Where(t => t.Email.StartsWith("g"));
-        }
     }
 }
