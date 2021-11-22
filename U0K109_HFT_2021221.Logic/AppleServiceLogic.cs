@@ -58,7 +58,7 @@ namespace U0K109_HFT_2021221.Logic
             var q1 = from x in appleServiceRepo.GetAll()
                      group x by x.ServiceID into g
                      select new KeyValuePair<int, double>(g.Key, g.Average(t => t.Customers.Average(z => z.Products.Count())));
-            ;
+            
             return q1;
         }
     }

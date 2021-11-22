@@ -14,7 +14,7 @@ namespace U0K109_HFT_2021221.Client
             //AppleServiceRepository repo = new AppleServiceRepository(db);
             //AppleServiceLogic l = new AppleServiceLogic(repo);
             //l.AvgProdPerCustomerPerService();
-            ;
+            
         }
     }
 }
