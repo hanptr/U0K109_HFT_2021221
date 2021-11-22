@@ -10,8 +10,8 @@ namespace U0K109_HFT_2021221.Logic
 {
     public class AppleProductLogic : IAppleProductLogic
     {
-        IAppleProductLogic appleProdcutRepo;
-        public AppleProductLogic(IAppleProductLogic appleProdcutRepo)
+        IAppleProductRepository appleProdcutRepo;
+        public AppleProductLogic(IAppleProductRepository appleProdcutRepo)
         {
             this.appleProdcutRepo = appleProdcutRepo;
         }
