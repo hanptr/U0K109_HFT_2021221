@@ -3,45 +3,58 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using U0K109_HFT_2021221.Data;
+using U0K109_HFT_2021221.Logic;
+using U0K109_HFT_2021221.Models;
+using U0K109_HFT_2021221.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace U0K109_HFT_2021221.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AppleServiceController : ControllerBase
     {
-        // GET: api/<AppleServiceController>
+        IAppleServiceLogic appleServiceLogic;
+        public AppleServiceController(IAppleServiceLogic appleServiceLogic)
+        {
+            this.appleServiceLogic = appleServiceLogic;
+        }
+
+        // GET: api/appleService
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<AppleService> Get()
         {
-            return new string[] { "value1", "value2" };
+            return appleServiceLogic.GetAll();
         }
 
-        // GET api/<AppleServiceController>/5
+        // GET api/appleService/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public AppleService Get(int id)
         {
-            return "value";
+            return appleServiceLogic.Read(id);
         }
 
-        // POST api/<AppleServiceController>
+        // POST api/appleService
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] AppleService value)
         {
+            appleServiceLogic.Create(value);
         }
 
-        // PUT api/<AppleServiceController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT api/appleService/5
+        [HttpPut]
+        public void Put([FromBody] AppleService value)
         {
+            appleServiceLogic.Update(value);
         }
 
-        // DELETE api/<AppleServiceController>/5
+        // DELETE appleService/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            appleServiceLogic.Delete(id);
         }
     }
 }

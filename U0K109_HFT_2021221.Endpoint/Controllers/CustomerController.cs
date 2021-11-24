@@ -3,45 +3,57 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using U0K109_HFT_2021221.Data;
+using U0K109_HFT_2021221.Logic;
+using U0K109_HFT_2021221.Models;
+using U0K109_HFT_2021221.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace U0K109_HFT_2021221.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        // GET: api/<CustomerController>
+        ICustomerLogic customerLogic;
+        public CustomerController(ICustomerLogic customerLogic)
+        {
+            this.customerLogic = customerLogic;
+        }
+        // GET: api/customer
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Customer> Get()
         {
-            return new string[] { "value1", "value2" };
+            return customerLogic.GetAll();
         }
 
-        // GET api/<CustomerController>/5
+        // GET api/customer/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Customer Get(int id)
         {
-            return "value";
+            return customerLogic.Read(id);
         }
 
-        // POST api/<CustomerController>
+        // POST api/customer
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Customer value)
         {
+            customerLogic.Create(value);
         }
 
-        // PUT api/<CustomerController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT api/customer/5
+        [HttpPut]
+        public void Put([FromBody] Customer value)
         {
+            customerLogic.Update(value);
         }
 
-        // DELETE api/<CustomerController>/5
+        // DELETE api/customer/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            customerLogic.Delete(id);
         }
     }
 }

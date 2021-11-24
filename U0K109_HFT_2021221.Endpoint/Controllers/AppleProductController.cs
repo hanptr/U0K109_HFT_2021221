@@ -3,45 +3,58 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Threading.Tasks;
+using U0K109_HFT_2021221.Data;
+using U0K109_HFT_2021221.Logic;
+using U0K109_HFT_2021221.Models;
+using U0K109_HFT_2021221.Repository;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace U0K109_HFT_2021221.Endpoint.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AppleProductController : ControllerBase
     {
-        // GET: api/<AppleProductController>
+        IAppleProductLogic appleProductLogic;
+        public AppleProductController(IAppleProductLogic appleProductLogic)
+        {
+            this.appleProductLogic = appleProductLogic;
+        }
+        // GET: api/appleProduct
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<AppleProduct> Get()
         {
-            return new string[] { "value1", "value2" };
+            return appleProductLogic.GetAll();
         }
 
-        // GET api/<AppleProductController>/5
+        // GET api/appleProduct/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public AppleProduct Get(int id)
         {
-            return "value";
+            return appleProductLogic.Read(id);
         }
 
-        // POST api/<AppleProductController>
+        // POST api/appleProduct
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] AppleProduct value)
         {
+            appleProductLogic.Create(value);
         }
 
-        // PUT api/<AppleProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT api/appleProduct/5
+        [HttpPut]
+        public void Put([FromBody] AppleProduct value)
         {
+            appleProductLogic.Update(value);
         }
 
-        // DELETE api/<AppleProductController>/5
+        // DELETE api/appleProduct/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            appleProductLogic.Delete(id);
         }
     }
 }

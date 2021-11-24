@@ -7,6 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using U0K109_HFT_2021221.Data;
+using U0K109_HFT_2021221.Logic;
+using U0K109_HFT_2021221.Models;
+using U0K109_HFT_2021221.Repository;
 
 namespace U0K109_HFT_2021221.Endpoint
 {
@@ -15,6 +19,14 @@ namespace U0K109_HFT_2021221.Endpoint
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddTransient<IAppleServiceLogic, AppleServiceLogic>();
+            services.AddTransient<ICustomerLogic, CustomerLogic>();
+            services.AddTransient<IAppleProductLogic, AppleProductLogic>();
+            services.AddTransient<IAppleServiceRepository, AppleServiceRepository>();
+            services.AddTransient<ICustomerRepository, CustomerRepository>();
+            services.AddTransient<IAppleProductRepository, AppleProductRepository>();
+            services.AddTransient<AppleDbContext, AppleDbContext>();
         }
 
         
