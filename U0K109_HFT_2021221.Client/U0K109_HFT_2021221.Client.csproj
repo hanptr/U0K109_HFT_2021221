@@ -6,10 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\U0K109_HFT_2021221.Data\U0K109_HFT_2021221.Data.csproj" />
-    <ProjectReference Include="..\U0K109_HFT_2021221.Logic\U0K109_HFT_2021221.Logic.csproj" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\U0K109_HFT_2021221.Models\U0K109_HFT_2021221.Models.csproj" />
-    <ProjectReference Include="..\U0K109_HFT_2021221.Repository\U0K109_HFT_2021221.Repository.csproj" />
   </ItemGroup>
 
 </Project>
