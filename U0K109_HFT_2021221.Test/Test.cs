@@ -182,7 +182,7 @@ namespace U0K109_HFT_2021221.Test
         public void Test9()
         {
             AppleProduct prod = new();
-            prod.Serial = 0;
+            prod.Serial = -1;
             Assert.That(() => { appleProdLogic.Create(prod); }, Throws.Exception);
         }
         [Test]
