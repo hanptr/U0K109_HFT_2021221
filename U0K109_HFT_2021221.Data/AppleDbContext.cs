@@ -62,12 +62,12 @@ namespace U0K109_HFT_2021221.Data
             Customer Sanyi = new Customer() { CustomerID = 3, Name = "Sanyi Sanyi", Email = "Sanyi@gmail.com", ServiceID=1 };
             Customer Lajos = new Customer() { CustomerID = 5, Name = "Lajos Lajos", Email = "Lajos@gmail.com", ServiceID=2 };
 
-            AppleProduct mac1 = new AppleProduct() { Serial = 1111, Color = "Black", Type = Models.Type.Mac, ServiceID=1, CustomerID=1 };
-            AppleProduct iphone1 = new AppleProduct() { Serial = 1112, Color = "Red", Type = Models.Type.iPhone, ServiceID=1, CustomerID = 1 };
-            AppleProduct watch1 = new AppleProduct() { Serial = 1113, Color = "Green", Type = Models.Type.AppleWatch, ServiceID = 1, CustomerID = 3 };
-            AppleProduct mac2 = new AppleProduct() { Serial = 1114, Color = "Black", Type = Models.Type.Mac, ServiceID = 1, CustomerID = 3 };
-            AppleProduct ipad1 = new AppleProduct() { Serial = 1115, Color = "Yellow", Type = Models.Type.iPad, ServiceID = 2, CustomerID = 5 };
-            AppleProduct iphone2 = new AppleProduct() { Serial = 1116, Color = "Blue", Type = Models.Type.iPhone, ServiceID = 2, CustomerID = 5 };
+            AppleProduct mac1 = new AppleProduct() { Serial = 1, Color = "Black", Type = Models.Type.Mac, ServiceID=1, CustomerID=1 };
+            AppleProduct iphone1 = new AppleProduct() { Serial = 2, Color = "Red", Type = Models.Type.iPhone, ServiceID=1, CustomerID = 1 };
+            AppleProduct watch1 = new AppleProduct() { Serial = 3, Color = "Green", Type = Models.Type.AppleWatch, ServiceID = 1, CustomerID = 3 };
+            AppleProduct mac2 = new AppleProduct() { Serial = 4, Color = "Black", Type = Models.Type.Mac, ServiceID = 1, CustomerID = 3 };
+            AppleProduct ipad1 = new AppleProduct() { Serial = 5, Color = "Yellow", Type = Models.Type.iPad, ServiceID = 2, CustomerID = 5 };
+            AppleProduct iphone2 = new AppleProduct() { Serial = 6, Color = "Blue", Type = Models.Type.iPhone, ServiceID = 2, CustomerID = 5 };
 
             modelBuilder.Entity<AppleService>().HasData(a1, a2);
             modelBuilder.Entity<Customer>().HasData(Bela, Sanyi, Lajos);
