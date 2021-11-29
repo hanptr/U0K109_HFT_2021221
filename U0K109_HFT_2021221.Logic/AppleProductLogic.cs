@@ -17,7 +17,7 @@ namespace U0K109_HFT_2021221.Logic
         }
         public void Create(AppleProduct appleProduct)
         {
-            if (appleProduct.Serial<1)
+            if (appleProduct.Serial<0)
             {
                 throw new Exception("Invalid Serial number.");
             }
