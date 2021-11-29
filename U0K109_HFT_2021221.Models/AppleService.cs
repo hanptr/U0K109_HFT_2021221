@@ -21,5 +21,19 @@ namespace U0K109_HFT_2021221.Models
             Customers = new HashSet<Customer>();
             Products = new HashSet<AppleProduct>();
         }
+        public override string ToString()
+        {
+            string sname = "-";
+            string loc = "-";
+            if (ServiceName!=null)
+            {
+                sname = ServiceName;
+            }
+            if (Location != null)
+            {
+                loc = Location;
+            }
+            return "ID: "+ServiceID+"\nService name: "+sname+"\nLocation: "+loc;
+        }
     }
 }

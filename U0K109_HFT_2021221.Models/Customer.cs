@@ -27,5 +27,19 @@ namespace U0K109_HFT_2021221.Models
         {
             Products = new HashSet<AppleProduct>();
         }
+        public override string ToString()
+        {
+            string cname = "-";
+            string cemail = "-";
+            if (Name!=null)
+            {
+                cname = Name;
+            }
+            if (Email!=null)
+            {
+                cemail = Email;
+            }
+            return "Customer ID: "+CustomerID+"\nName: "+cname+"\nEmail: "+cemail+"\nUsed this Apple service (service id): "+ServiceID;
+        }
     }
 }

@@ -15,9 +15,6 @@ namespace U0K109_HFT_2021221.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Serial { get; set; }
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        //public DateTime Date { get; set; }
         public Type Type { get; set; }
         public string Color { get; set; }
         [NotMapped]
@@ -30,6 +27,14 @@ namespace U0K109_HFT_2021221.Models
         public int ServiceID { get; set; }
         [ForeignKey(nameof(Customer))]
         public int CustomerID { get; set; }
-
+        public override string ToString()
+        {
+            string pcolor = "-";
+            if (Color!=null)
+            {
+                pcolor = Color;
+            }
+            return "Serial number: "+Serial+"\nType: "+Type+"\nColor: "+pcolor+"\nOwner (customer id): "+CustomerID+"\nIn this Apple service: "+ServiceID;
+        }
     }
 }
