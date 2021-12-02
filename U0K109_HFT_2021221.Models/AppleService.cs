@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -25,7 +24,7 @@ namespace U0K109_HFT_2021221.Models
         {
             string sname = "-";
             string loc = "-";
-            if (ServiceName!=null)
+            if (ServiceName != null)
             {
                 sname = ServiceName;
             }
@@ -33,7 +32,7 @@ namespace U0K109_HFT_2021221.Models
             {
                 loc = Location;
             }
-            return "ID: "+ServiceID+"\nService name: "+sname+"\nLocation: "+loc;
+            return "ID: " + ServiceID + "\nService name: " + sname + "\nLocation: " + loc;
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace U0K109_HFT_2021221.Client
 {
@@ -32,7 +28,7 @@ namespace U0K109_HFT_2021221.Client
                         var get = rest.Get<KeyValuePair<int, double>>("stat/avgprodpercustomerperservice");
                         foreach (var item in get)
                         {
-                            writeline?.Invoke("Service: "+ item.Key+" AVGPRODUCT: "+item.Value);
+                            writeline?.Invoke("Service: " + item.Key + " AVGPRODUCT: " + item.Value);
                         }
                         break;
                     case "2":

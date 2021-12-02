@@ -1,15 +1,9 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using U0K109_HFT_2021221.Data;
 using U0K109_HFT_2021221.Logic;
-using U0K109_HFT_2021221.Models;
 using U0K109_HFT_2021221.Repository;
 
 namespace U0K109_HFT_2021221.Endpoint
@@ -29,7 +23,7 @@ namespace U0K109_HFT_2021221.Endpoint
             services.AddTransient<AppleDbContext, AppleDbContext>();
         }
 
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

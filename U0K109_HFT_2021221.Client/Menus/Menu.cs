@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using U0K109_HFT_2021221.Models;
-
-namespace U0K109_HFT_2021221.Client
+﻿namespace U0K109_HFT_2021221.Client
 {
     public delegate void Clear();
     public delegate string Input();
@@ -33,9 +26,9 @@ namespace U0K109_HFT_2021221.Client
             Update update = new Update();
             Delete delete = new Delete();
             Stat stat = new Stat();
-            
 
-            string choice ="";
+
+            string choice = "";
             while (!choice.Equals("0"))
             {
                 clear?.Invoke();
@@ -75,6 +68,6 @@ namespace U0K109_HFT_2021221.Client
                 }
             }
         }
-        
+
     }
 }

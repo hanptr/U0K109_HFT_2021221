@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using U0K109_HFT_2021221.Data;
 using U0K109_HFT_2021221.Models;
 
@@ -10,7 +6,7 @@ namespace U0K109_HFT_2021221.Repository
 {
     public class CustomerRepository : ICustomerRepository
     {
-         AppleDbContext db;
+        AppleDbContext db;
         public CustomerRepository(AppleDbContext db)
         {
             this.db = db;

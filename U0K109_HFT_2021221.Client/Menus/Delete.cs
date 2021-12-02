@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using U0K109_HFT_2021221.Models;
-
-namespace U0K109_HFT_2021221.Client
+﻿namespace U0K109_HFT_2021221.Client
 {
     public class Delete
     {
@@ -35,7 +28,7 @@ namespace U0K109_HFT_2021221.Client
                         write?.Invoke("Apple service (to delete) id: ");
 
                         int serviceId = int.Parse(input?.Invoke());
-                        
+
                         rest.Delete(serviceId, "/appleService");
 
                         writeline?.Invoke($"Apple service (id: {serviceId}) deleted successfully.");

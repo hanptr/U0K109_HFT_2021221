@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using U0K109_HFT_2021221.Models;
 
 namespace U0K109_HFT_2021221.Client
@@ -31,7 +27,7 @@ namespace U0K109_HFT_2021221.Client
 
                     case "1":
 
-                        
+
                         write?.Invoke("Apple service id: ");
 
                         int serviceId = int.Parse(input?.Invoke());
@@ -72,7 +68,7 @@ namespace U0K109_HFT_2021221.Client
                     case "3":
 
                         write?.Invoke("Serial: ");
-                        int productSerial=int.Parse(input?.Invoke());
+                        int productSerial = int.Parse(input?.Invoke());
 
                         AppleProduct updatedProduct = rest.Get<AppleProduct>(productSerial, "/appleProduct");
 

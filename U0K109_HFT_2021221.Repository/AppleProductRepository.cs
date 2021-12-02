@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using U0K109_HFT_2021221.Models;
+﻿using System.Linq;
 using U0K109_HFT_2021221.Data;
+using U0K109_HFT_2021221.Models;
 
 namespace U0K109_HFT_2021221.Repository
 {
@@ -44,6 +40,7 @@ namespace U0K109_HFT_2021221.Repository
         {
             var appleProductToUpdate = Read(appleProduct.Serial);
             appleProductToUpdate.Type = appleProduct.Type;
+            appleProductToUpdate.Color = appleProduct.Color;
             appleProductToUpdate.ServiceID = appleProduct.ServiceID;
             appleProductToUpdate.CustomerID = appleProduct.CustomerID;
             db.SaveChanges();

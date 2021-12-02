@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using U0K109_HFT_2021221.Models;
 
 namespace U0K109_HFT_2021221.Client
@@ -34,7 +30,7 @@ namespace U0K109_HFT_2021221.Client
                         AppleService service = new AppleService();
 
                         write?.Invoke("Service name: ");
-                        service.ServiceName=input?.Invoke();
+                        service.ServiceName = input?.Invoke();
 
                         write?.Invoke("Location: ");
                         service.Location = input?.Invoke();
@@ -66,28 +62,6 @@ namespace U0K109_HFT_2021221.Client
 
                         AppleProduct product = new AppleProduct();
 
-                        //write?.Invoke("Product serial number: ");
-                        //int sId = int.Parse(input?.Invoke());
-                        //var result = rest.Get<AppleProduct>("/appleProduct");
-                        //bool isUnique = false;
-                        //if (result.FirstOrDefault(x => x.Serial == sId) == null)
-                        //{
-                        //    product.Serial = sId;
-                        //}
-                        //else
-                        //{
-                        //    while (isUnique == false)
-                        //    {
-                        //        write?.Invoke("This product serial has already been recorded in the database, give another one: ");
-                        //        sId =int.Parse(input?.Invoke());
-                        //        if (result.FirstOrDefault(x => x.Serial == sId) == null)
-                        //        {
-                        //            isUnique = true;
-                        //        }
-                        //    }
-                        //    product.Serial = sId;
-                        //}
-
                         write?.Invoke("Type: ");
                         product.Type = (U0K109_HFT_2021221.Models.Type)Enum.Parse(typeof(U0K109_HFT_2021221.Models.Type), input?.Invoke());
 
@@ -99,7 +73,7 @@ namespace U0K109_HFT_2021221.Client
 
                         write?.Invoke("In this Apple service (service id): ");
                         product.ServiceID = int.Parse(input?.Invoke());
-                        
+
                         rest.Post<AppleProduct>(product, "/appleProduct");
 
                         write?.Invoke("Apple product created successfully.");

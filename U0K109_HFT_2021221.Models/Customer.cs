@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace U0K109_HFT_2021221.Models
 {
@@ -31,15 +27,15 @@ namespace U0K109_HFT_2021221.Models
         {
             string cname = "-";
             string cemail = "-";
-            if (Name!=null)
+            if (Name != null)
             {
                 cname = Name;
             }
-            if (Email!=null)
+            if (Email != null)
             {
                 cemail = Email;
             }
-            return "Customer ID: "+CustomerID+"\nName: "+cname+"\nEmail: "+cemail+"\nUsed this Apple service (service id): "+ServiceID;
+            return "Customer ID: " + CustomerID + "\nName: " + cname + "\nEmail: " + cemail + "\nUsed this Apple service (service id): " + ServiceID;
         }
     }
 }

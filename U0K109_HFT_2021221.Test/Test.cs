@@ -1,11 +1,10 @@
-﻿using System;
-using Moq;
-using System.Linq;
+﻿using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
+using U0K109_HFT_2021221.Logic;
 using U0K109_HFT_2021221.Models;
 using U0K109_HFT_2021221.Repository;
-using U0K109_HFT_2021221.Logic;
 
 namespace U0K109_HFT_2021221.Test
 {
@@ -186,7 +185,7 @@ namespace U0K109_HFT_2021221.Test
             Assert.That(() => { appleProdLogic.Create(prod); }, Throws.Exception);
         }
         [Test]
-        public void Test10() 
+        public void Test10()
         {
             AppleProduct prod = new();
             prod.Serial = 999999999;
