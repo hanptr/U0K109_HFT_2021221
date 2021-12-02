@@ -12,7 +12,7 @@ namespace U0K109_HFT_2021221.Client
         public void Start(Clear clear, Input input, Output write, Output writeline, RestService rest)
         {
             clear?.Invoke();
-            writeline?.Invoke("Read menu");
+            writeline?.Invoke("Create menu");
             writeline?.Invoke("");
             writeline?.Invoke("0. Back to main");
             writeline?.Invoke("1. Apple Service");
@@ -39,7 +39,9 @@ namespace U0K109_HFT_2021221.Client
                         write?.Invoke("Location: ");
                         service.Location = input?.Invoke();
 
-                        rest.Post(service, "/appleService");
+                        rest.Post<AppleService>(service, "/appleService");
+
+                        write?.Invoke("Apple service created successfully.");
                         break;
 
                     case "2":
@@ -48,11 +50,16 @@ namespace U0K109_HFT_2021221.Client
 
                         write?.Invoke("Customer name: ");
                         customer.Name = input?.Invoke();
+
                         write?.Invoke("Email: ");
                         customer.Email = input?.Invoke();
+
                         write?.Invoke("Used this Apple service(service id): ");
                         customer.ServiceID = int.Parse(input?.Invoke());
-                        rest.Post(customer, "/customer");
+
+                        rest.Post<Customer>(customer, "/customer");
+
+                        write?.Invoke("Customer created successfully.");
                         break;
 
                     case "3":
@@ -94,6 +101,8 @@ namespace U0K109_HFT_2021221.Client
                         product.ServiceID = int.Parse(input?.Invoke());
                         
                         rest.Post<AppleProduct>(product, "/appleProduct");
+
+                        write?.Invoke("Apple product created successfully.");
                         break;
 
                     default:
