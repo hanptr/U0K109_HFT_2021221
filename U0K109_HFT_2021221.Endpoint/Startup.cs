@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using U0K109_HFT_2021221.Data;
+using U0K109_HFT_2021221.Endpoint.Services;
 using U0K109_HFT_2021221.Logic;
 using U0K109_HFT_2021221.Repository;
 
@@ -21,6 +22,9 @@ namespace U0K109_HFT_2021221.Endpoint
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IAppleProductRepository, AppleProductRepository>();
             services.AddTransient<AppleDbContext, AppleDbContext>();
+
+
+            services.AddSignalR();
         }
 
 
@@ -36,6 +40,7 @@ namespace U0K109_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

@@ -22,6 +22,8 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <StackPanel Grid.Column="1">
+            <Label Content="AppleService Name" Background="LightBlue" Padding="10"/>
+            <TextBox Text="{Binding SelectedAppleService.ServiceName}" Padding="10" Margin="0,0,0,30"/>
             <Button Content="Create AppleService" Command="{Binding CreateAppleServiceCommand}" Padding="10" Margin="10"/>
             <Button Content="Delete AppleService" Command="{Binding DeleteAppleServiceCommand}" Padding="10" Margin="10"/>
             <Button Content="Update AppleService" Command="{Binding UpdateAppleServiceCommand}" Padding="10" Margin="10"/>
