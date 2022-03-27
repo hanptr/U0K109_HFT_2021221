@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:U0K109_HFT_2021221.WpfClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="AppleService Editor" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox ItemsSource="{Binding AppleServices}" SelectedItem="{Binding SelectedAppleService}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding ServiceName}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="1">
+            <Button Content="Create AppleService" Command="{Binding CreateAppleServiceCommand}" Padding="10" Margin="10"/>
+            <Button Content="Delete AppleService" Command="{Binding DeleteAppleServiceCommand}" Padding="10" Margin="10"/>
+            <Button Content="Update AppleService" Command="{Binding UpdateAppleServiceCommand}" Padding="10" Margin="10"/>
 
+        </StackPanel>
     </Grid>
 </Window>
