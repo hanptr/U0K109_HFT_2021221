@@ -13,21 +13,117 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding AppleServices}" SelectedItem="{Binding SelectedAppleService}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        
+        <ListBox ItemsSource="{Binding AppleServices}" SelectedItem="{Binding SelectedAppleService}" Background="Aqua" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding ServiceName}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <StackPanel Grid.Column="1">
-            <Label Content="AppleService Name" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedAppleService.ServiceName}" Padding="10" Margin="0,0,0,30"/>
-            <Button Content="Create AppleService" Command="{Binding CreateAppleServiceCommand}" Padding="10" Margin="10"/>
-            <Button Content="Delete AppleService" Command="{Binding DeleteAppleServiceCommand}" Padding="10" Margin="10"/>
-            <Button Content="Update AppleService" Command="{Binding UpdateAppleServiceCommand}" Padding="10" Margin="10"/>
+        <Grid x:Name="inner_grid" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
 
+            <Label Content="AppleService Name:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="0"/>
+            <TextBox Text="{Binding SelectedAppleService.ServiceName}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="0"/>
+
+            <Label Content="AppleService Location:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="1"/>
+            <TextBox Text="{Binding SelectedAppleService.Location}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="1"/>
+        </Grid>
+        <StackPanel Grid.Column="2" Grid.Row="0">
+            <Button Content="Create AppleService" Command="{Binding CreateAppleServiceCommand}"/>
+            <Button Content="Delete AppleService" Command="{Binding DeleteAppleServiceCommand}"/>
+            <Button Content="Update AppleService" Command="{Binding UpdateAppleServiceCommand}"/>
         </StackPanel>
+        
+
+        
+        <ListBox ItemsSource="{Binding Customers}" SelectedItem="{Binding SelectedCustomer}" Background="Yellow" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid x:Name="inner_grid2" Grid.Column="1" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Customer Name:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="0"/>
+            <TextBox Text="{Binding SelectedCustomer.Name}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch"/>
+
+            <Label Content="In this Service:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="1"/>
+            <TextBox Text="{Binding SelectedCustomer.ServiceID}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+            <Label Content="Customer's email:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="2"/>
+            <TextBox Text="{Binding SelectedCustomer.Email}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch"/>
+        </Grid>
+        <StackPanel Grid.Column="2" Grid.Row="1">
+            <Button Content="Create Customer" Command="{Binding CreateCustomerCommand}"/>
+            <Button Content="Delete Customer" Command="{Binding DeleteCustomerCommand}"/>
+            <Button Content="Update Customer" Command="{Binding UpdateCustomerCommand}"/>
+        </StackPanel>
+        
+
+        
+        <ListBox ItemsSource="{Binding AppleProducts}" SelectedItem="{Binding SelectedAppleProduct}" Background="Green" Grid.Row="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding Type}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Grid x:Name="inner_grid3" Grid.Column="1" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Product type:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="0"/>
+            <TextBox Text="{Binding SelectedAppleProduct.Type}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="0"/>
+
+            <Label Content="Color:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="1"/>
+            <TextBox Text="{Binding SelectedAppleProduct.Color}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="1"/>
+
+            <Label Content="Owner:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="2"/>
+            <TextBox Text="{Binding SelectedAppleProduct.CustomerID}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="2"/>
+
+            <Label Content="In this Service:" Background="LightBlue" Padding="10" Grid.Column="0" Grid.Row="3"/>
+            <TextBox Text="{Binding SelectedAppleProduct.ServiceID}" Padding="10" Margin="0,0,0,30" Grid.Column="1" Grid.Row="3"/>
+        </Grid>
+        <StackPanel Grid.Column="2" Grid.Row="2">
+            <Button Content="Create AppleProduct" Command="{Binding CreateAppleProductCommand}"/>
+            <Button Content="Delete AppleProduct" Command="{Binding DeleteAppleProductCommand}"/>
+            <Button Content="Update AppleProduct" Command="{Binding UpdateAppleProductCommand}"/>
+        </StackPanel>
+        
     </Grid>
 </Window>

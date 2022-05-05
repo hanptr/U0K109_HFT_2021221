@@ -22,6 +22,7 @@ namespace U0K109_HFT_2021221.WpfClient
     {
         public MainWindow()
         {
+            System.Threading.Thread.Sleep(5000);
             InitializeComponent();
         }
     }

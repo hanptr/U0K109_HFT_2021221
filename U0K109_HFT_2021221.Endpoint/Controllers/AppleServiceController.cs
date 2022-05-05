@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Collections.Generic;
+using U0K109_HFT_2021221.Endpoint.Services;
 using U0K109_HFT_2021221.Logic;
 using U0K109_HFT_2021221.Models;
 
@@ -12,9 +14,11 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
     public class AppleServiceController : ControllerBase
     {
         IAppleServiceLogic appleServiceLogic;
-        public AppleServiceController(IAppleServiceLogic appleServiceLogic)
+        IHubContext<SignalRHub> hub;
+        public AppleServiceController(IAppleServiceLogic appleServiceLogic, IHubContext<SignalRHub> hub)
         {
             this.appleServiceLogic = appleServiceLogic;
+            this.hub=hub;
         }
 
         // GET: api/appleService
@@ -36,6 +40,7 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] AppleService value)
         {
             appleServiceLogic.Create(value);
+            this.hub.Clients.All.SendAsync("AppleServiceCreated", value);
         }
 
         // PUT api/appleService/5
@@ -43,13 +48,18 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] AppleService value)
         {
             appleServiceLogic.Update(value);
+            this.hub.Clients.All.SendAsync("AppleServiceUpdated", value);
+
         }
 
         // DELETE appleService/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var appleServiceToDelete = this.appleServiceLogic.Read(id);
             appleServiceLogic.Delete(id);
+            this.hub.Clients.All.SendAsync("AppleServiceDeleted", appleServiceToDelete);
+
         }
     }
 }

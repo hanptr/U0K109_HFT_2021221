@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System.Collections.Generic;
+using U0K109_HFT_2021221.Endpoint.Services;
 using U0K109_HFT_2021221.Logic;
 using U0K109_HFT_2021221.Models;
 
@@ -12,9 +14,11 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
     public class AppleProductController : ControllerBase
     {
         IAppleProductLogic appleProductLogic;
-        public AppleProductController(IAppleProductLogic appleProductLogic)
+        IHubContext<SignalRHub> hub;
+        public AppleProductController(IAppleProductLogic appleProductLogic, IHubContext<SignalRHub> hub)
         {
             this.appleProductLogic = appleProductLogic;
+            this.hub = hub;
         }
         // GET: api/appleProduct
         [HttpGet]
@@ -35,6 +39,7 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
         public void Post([FromBody] AppleProduct value)
         {
             appleProductLogic.Create(value);
+            this.hub.Clients.All.SendAsync("AppleProductCreated", value);
         }
 
         // PUT api/appleProduct/5
@@ -42,13 +47,16 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] AppleProduct value)
         {
             appleProductLogic.Update(value);
+            this.hub.Clients.All.SendAsync("AppleProductUpdated", value);
         }
 
         // DELETE api/appleProduct/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            var appleServiceToDelete = this.appleProductLogic.Read(id);
             appleProductLogic.Delete(id);
+            this.hub.Clients.All.SendAsync("AppleProductDeleted", appleServiceToDelete);
         }
     }
 }
