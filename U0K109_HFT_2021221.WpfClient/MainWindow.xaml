@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:U0K109_HFT_2021221.WpfClient"
         mc:Ignorable="d"
-        Title="AppleService Editor" Height="450" Width="800">
+        Title="AppleService Editor" Height="450" Width="800"
+        WindowState="Maximized">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>

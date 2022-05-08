@@ -54,8 +54,8 @@ namespace U0K109_HFT_2021221.Data
             AppleService a2 = new AppleService() { ServiceID = 2, ServiceName = "A2", Location = "Érd" };
 
             Customer Bela = new Customer() { CustomerID = 1, Name = "Bela Bela", Email = "bela@gmail.com", ServiceID = 1 };
-            Customer Sanyi = new Customer() { CustomerID = 3, Name = "Sanyi Sanyi", Email = "Sanyi@gmail.com", ServiceID = 1 };
-            Customer Lajos = new Customer() { CustomerID = 5, Name = "Lajos Lajos", Email = "Lajos@gmail.com", ServiceID = 2 };
+            Customer Sanyi = new Customer() { CustomerID = 2, Name = "Sanyi Sanyi", Email = "Sanyi@gmail.com", ServiceID = 1 };
+            Customer Lajos = new Customer() { CustomerID = 3, Name = "Lajos Lajos", Email = "Lajos@gmail.com", ServiceID = 2 };
 
             AppleProduct mac1 = new AppleProduct() { Serial = 1, Color = "Black", Type = Models.Type.Mac, ServiceID = 1, CustomerID = 1 };
             AppleProduct iphone1 = new AppleProduct() { Serial = 2, Color = "Red", Type = Models.Type.iPhone, ServiceID = 1, CustomerID = 1 };
