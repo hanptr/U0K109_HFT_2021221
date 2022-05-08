@@ -158,8 +158,7 @@ namespace U0K109_HFT_2021221.WpfClient
                         Customers.Add(new Customer()
                         {
                             ServiceID=SelectedCustomer.ServiceID,
-                            AppleService=SelectedCustomer.AppleService,
-                            //CustomerID=SelectedCustomer.CustomerID,
+                            //AppleService=SelectedCustomer.AppleService,
                             Email=SelectedCustomer.Email,
                             Name=SelectedCustomer.Name,
                         }
@@ -189,11 +188,8 @@ namespace U0K109_HFT_2021221.WpfClient
                         AppleProducts.Add(new AppleProduct()
                         {
                             ServiceID=SelectedCustomer.ServiceID,
-                            AppleService=SelectedCustomer.AppleService,
                             CustomerID=SelectedCustomer.CustomerID,
-                            Serial=SelectedAppleProduct.Serial,
                             Color=SelectedAppleProduct.Color,
-                            Customer=SelectedAppleProduct.Customer,
                             Type=SelectedAppleProduct.Type
                         }
                             );
