@@ -18,7 +18,6 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
         public CustomerController(ICustomerLogic customerLogic, IHubContext<SignalRHub> hub)
         {
             this.customerLogic = customerLogic;
-            this.hub = hub;
         }
         // GET: api/customer
         [HttpGet]
@@ -54,9 +53,9 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var customerToDelete = this.customerLogic.Read(id);
+            var appleServiceToDelete = this.customerLogic.Read(id);
             customerLogic.Delete(id);
-            this.hub.Clients.All.SendAsync("CustomerDeleted", customerToDelete);
+            this.hub.Clients.All.SendAsync("CustomerDeleted", appleServiceToDelete);
         }
     }
 }

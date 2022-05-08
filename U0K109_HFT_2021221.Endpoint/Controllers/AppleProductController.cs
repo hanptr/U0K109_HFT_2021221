@@ -54,9 +54,9 @@ namespace U0K109_HFT_2021221.Endpoint.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var appleProductToDelete = this.appleProductLogic.Read(id);
+            var appleServiceToDelete = this.appleProductLogic.Read(id);
             appleProductLogic.Delete(id);
-            this.hub.Clients.All.SendAsync("AppleProductDeleted", appleProductToDelete);
+            this.hub.Clients.All.SendAsync("AppleProductDeleted", appleServiceToDelete);
         }
     }
 }
