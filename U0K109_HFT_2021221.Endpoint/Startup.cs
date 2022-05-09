@@ -42,6 +42,11 @@ namespace U0K109_HFT_2021221.Endpoint
                 endpoints.MapControllers();
                 endpoints.MapHub<SignalRHub>("/hub");
             });
+            app.UseCors(x=>x
+                    .AllowCredentials()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .WithOrigins("http://localhost:21980/"));
         }
     }
 }
