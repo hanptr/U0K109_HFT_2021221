@@ -28,7 +28,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{A15DC0
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U0K109_HFT_2021221.WpfClient", "U0K109_HFT_2021221.WpfClient\U0K109_HFT_2021221.WpfClient.csproj", "{2A848399-5E79-4B02-8C07-FBD268CFF443}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "U0K109_HFT_2021221.WpfClient", "U0K109_HFT_2021221.WpfClient\U0K109_HFT_2021221.WpfClient.csproj", "{2A848399-5E79-4B02-8C07-FBD268CFF443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U0K109_HFT_2021221.JSClient", "U0K109_HFT_2021221.JSClient\U0K109_HFT_2021221.JSClient.csproj", "{FF616E92-EBF0-4186-AF72-DD51B8884E92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -68,6 +70,10 @@ Global
 		{2A848399-5E79-4B02-8C07-FBD268CFF443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A848399-5E79-4B02-8C07-FBD268CFF443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A848399-5E79-4B02-8C07-FBD268CFF443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF616E92-EBF0-4186-AF72-DD51B8884E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF616E92-EBF0-4186-AF72-DD51B8884E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF616E92-EBF0-4186-AF72-DD51B8884E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF616E92-EBF0-4186-AF72-DD51B8884E92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
