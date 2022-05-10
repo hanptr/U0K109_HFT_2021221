@@ -34,6 +34,11 @@ namespace U0K109_HFT_2021221.Endpoint
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors(x => x
+                .AllowCredentials()
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:11610"));
 
             app.UseRouting();
 
