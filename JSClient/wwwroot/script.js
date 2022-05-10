@@ -1,5 +1,8 @@
 ﻿let array = [];
 let connection = null;
+
+let serviceIDtoUpdate = -1;
+
 getdata();
 setupSignalR();
 
@@ -57,7 +60,9 @@ function display() {
             + t.serviceName + "</td><td>"
             + t.location + "</td><td>"
             + `<button type="button" onclick="remove(${t.serviceID})">Delete</button>`
-            + "</td></tr>";
+            + "</td><td>"
+            + `<button type="button" onclick="showupdate(${t.serviceID})">Update</button>`
+        +"</td></tr > ";
     });
 }
 
@@ -86,6 +91,33 @@ function create() {
         headers: { 'Content-Type': 'application/json', },
         body: JSON.stringify(
             { serviceName: servicename, location: location})
+    })
+        .then(response => response)
+        .then(data => {
+            console.log('Success:', data);
+            getdata();
+        })
+        .catch((error) => { console.error('Error:', error); });
+}
+
+function showupdate(id) {
+    document.getElementById('servicenametoupdate').value = array.find(t => t['serviceID'] == id)['serviceName'];
+    document.getElementById('locationtoupdate').value = array.find(t => t['serviceID'] == id)['location'];
+    document.getElementById('updateformdiv').style.display = "flex";
+    serviceIDtoUpdate = id;
+}
+
+function update() {
+    document.getElementById('updateformdiv').style.display = "none";
+    let servicename = document.getElementById('servicenametoupdate').value;
+    let location = document.getElementById('locationtoupdate').value;
+
+
+    fetch('http://localhost:21980/appleService', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', },
+        body: JSON.stringify(
+            { serviceName: servicename, location: location, serviceID: serviceIDtoUpdate })
     })
         .then(response => response)
         .then(data => {
