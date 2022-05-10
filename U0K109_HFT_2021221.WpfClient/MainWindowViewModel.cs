@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
@@ -28,13 +29,16 @@ namespace U0K109_HFT_2021221.WpfClient
                     selectedAppleService = new AppleService()
                     {
                         ServiceName = value.ServiceName,
-                        ServiceID=value.ServiceID,
-                        Location=value.Location
+                        ServiceID = value.ServiceID,
+                        Location = value.Location,
+                        Customers = value.Customers,
+                        Products = value.Products
                     };
-                    SetProperty(ref selectedAppleService, value);
-                    //onpropchanged
+                    OnPropertyChanged();
+                    (CreateAppleServiceCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (DeleteAppleServiceCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateAppleServiceCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
-                (DeleteAppleServiceCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
         //Customer
@@ -54,12 +58,15 @@ namespace U0K109_HFT_2021221.WpfClient
                         CustomerID=value.CustomerID,
                         Email=value.Email,
                         Name=value.Name,
-                        //AppleService=value.AppleService
+                        AppleService=value.AppleService,
+                        Products=value.Products
+                        
                     };
-                    SetProperty(ref selectedCustomer, value);
-                    //OnPropertyChanged();
+                    OnPropertyChanged();
+                    (CreateCustomerCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (DeleteCustomerCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateCustomerCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
-                (DeleteCustomerCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
 
@@ -84,10 +91,11 @@ namespace U0K109_HFT_2021221.WpfClient
                         CustomerID=value.CustomerID,
                         Type=value.Type
                     };
-                    //OnPropertyChanged();
-                    SetProperty(ref selectedAppleProduct, value);
+                    OnPropertyChanged();
+                    (CreateAppleProductCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (DeleteAppleProductCommand as RelayCommand).NotifyCanExecuteChanged();
+                    (UpdateAppleProductCommand as RelayCommand).NotifyCanExecuteChanged();
                 }
-                (DeleteAppleProductCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
         //appleservice command
@@ -159,11 +167,10 @@ namespace U0K109_HFT_2021221.WpfClient
                         {
                             ServiceID=SelectedCustomer.ServiceID,
                             AppleService=SelectedCustomer.AppleService,
-                            //CustomerID=SelectedCustomer.CustomerID,
                             Email=SelectedCustomer.Email,
-                            Name=SelectedCustomer.Name,
+                            Name=SelectedCustomer.Name
                         }
-                            );
+                       );
                     }
                     );
                 DeleteCustomerCommand = new RelayCommand(
@@ -191,12 +198,11 @@ namespace U0K109_HFT_2021221.WpfClient
                             ServiceID=SelectedCustomer.ServiceID,
                             AppleService=SelectedCustomer.AppleService,
                             CustomerID=SelectedCustomer.CustomerID,
-                            Serial=SelectedAppleProduct.Serial,
                             Color=SelectedAppleProduct.Color,
                             Customer=SelectedAppleProduct.Customer,
                             Type=SelectedAppleProduct.Type
                         }
-                            );
+                      );
                     }
                     );
                 DeleteAppleProductCommand = new RelayCommand(() => AppleProducts.Delete(SelectedAppleProduct.Serial));
