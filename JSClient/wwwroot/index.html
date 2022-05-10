@@ -2,9 +2,32 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <title>AppleService UI</title>
+    <link rel="stylesheet" href="StyleSheet.css" />
 </head>
 <body>
 
+    <div id="formdiv">
+        <label>ServiceName</label>
+        <input type="text" id="servicename" />
+        <label>Location</label>
+        <input type="text" id="location" />
+        <button type="button" onclick="create()">Add AppleService</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ServiceId</th>
+                <th>ServiceName</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody id="resultarea">
+        </tbody>
+    </table>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
